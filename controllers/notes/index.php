@@ -9,4 +9,4 @@ $db = new Database($config['database']);
 $notes = $db->query("SELECT * FROM note where user_id = 1")->findAll();
 
 $heading = 'Notes';
-require 'views/notes.view.php';
+require 'views/notes/index.view.php';

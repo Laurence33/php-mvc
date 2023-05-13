@@ -12,4 +12,4 @@ $note = $db->query("SELECT * FROM note where id = :id", $params)->findOrFail();
 authorize($note['user_id'] === $currentUserId);
 
 $heading = 'Note';
-require 'views/note.view.php';
+require 'views/notes/show.view.php';
