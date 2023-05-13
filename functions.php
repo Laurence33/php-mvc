@@ -20,3 +20,10 @@ function abort($code = Response::NOT_FOUND)
     require "views/{$code}.view.php";
     die();
 }
+
+function authorize($condition, $status = Response::FORBIDDEN)
+{
+    if (!$condition) {
+        abort($status);
+    }
+}

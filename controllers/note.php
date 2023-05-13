@@ -7,14 +7,9 @@ $currentUserId = 1;
 $params = [
     ':id' => $_GET['id']
 ];
-$note = $db->query("SELECT * FROM note where id = :id", $params)->fetch();
+$note = $db->query("SELECT * FROM note where id = :id", $params)->findOrFail();
 
-if (!$note) {
-    abort();
-}
+authorize($note['user_id'] === $currentUserId);
 
-if ($note['user_id'] == $currentUserId) {
-    abort(Response::FORBIDDEN);
-}
 $heading = 'Note';
 require 'views/note.view.php';

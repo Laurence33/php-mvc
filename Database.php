@@ -2,7 +2,7 @@
 class Database
 {
     private PDO $pdo;
-
+    public $statement;
     public function __construct($config, $username = 'root', $password = '')
     {
         $dsn = "mysql:" . http_build_query($config, '', ';');
@@ -14,9 +14,28 @@ class Database
     public function query($sql, $params = [])
     {
 
-        $statement = $this->pdo->prepare($sql);
-        $statement->execute($params);
+        $this->statement = $this->pdo->prepare($sql);
+        $this->statement->execute($params);
 
-        return $statement;
+        return $this;
+    }
+
+    public function findAll()
+    {
+        return $this->statement->fetchAll();
+    }
+
+    public function find()
+    {
+        return $this->statement->fetch();
+    }
+
+    public function findOrFail()
+    {
+        $result = $this->find();
+        if (!$result) {
+            abort();
+        }
+        return $result;
     }
 }
