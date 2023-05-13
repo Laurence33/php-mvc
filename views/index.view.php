@@ -1,10 +1,10 @@
-<?php require('partials/header.php') ?>
-<?php require 'partials/nav.php'; ?>
-<?php require('partials/banner.php'); ?>
+<?php require partial('header.php') ?>
+<?php require partial('nav.php'); ?>
+<?php require partial('banner.php'); ?>
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <!-- Your content -->
         <p>Hello! Welcome to Home page.</p>
     </div>
 </main>
-<?php require('partials/footer.php'); ?>
+<?php require partial('footer.php'); ?>

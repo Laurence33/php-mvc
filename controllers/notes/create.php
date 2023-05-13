@@ -1,5 +1,5 @@
 <?php
-$config = require('config.php');
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
 $currentUserId = 1;
@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-
-$heading = 'Create Note';
-require 'views/notes/create.view.php';
+view('/notes/create.view.php', [
+    'heading' => 'Create Note',
+    'errors' => $errors
+]);
