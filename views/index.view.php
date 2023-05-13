@@ -1,36 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            display: grid;
-            place-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: sans-serif;
-        }
-    </style>
-</head>
-
-<body>
-    <h1>
-        Recommended Books
-    </h1>
-    <ul>
-        <?php
-        foreach ($filteredBooks as $book) { ?>
-            <li>
-                <a href="<?= $book['purchaseUrl'] ?>">
-                    <?= $book['name']  ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
-                </a>
-            </li>
-        <?php } ?>
-    </ul>
-</body>
-
-</html>
+<?php require('partials/header.php') ?>
+<?php require 'partials/nav.php'; ?>
+<?php require('partials/banner.php'); ?>
+<main>
+    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+        <!-- Your content -->
+        <p>Hello! Welcome to Home page.</p>
+    </div>
+</main>
+<?php require('partials/footer.php'); ?>
